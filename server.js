@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 4000;
+const port = process.env.PORT || 3000;
 
 // Middleware to serve static files
 app.use(express.static('public'));
@@ -11,11 +11,13 @@ let flashcards = [];
 
 // Endpoint to get all flashcards
 app.get('/api/flashcards', (req, res) => {
+    console.log('GET request received');
     res.json(flashcards);
 });
 
 // Endpoint to add a new flashcard
 app.post('/api/flashcards', (req, res) => {
+    console.log('POST request received:', req.body);
     const { word, translation } = req.body;
     if (word && translation) {
         flashcards.push({ word, translation });
