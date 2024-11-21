@@ -18,10 +18,7 @@ function addFlashcard() {
             console.log(data);
             loadFlashcards(); // Reload flashcards after adding
         })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('There was an issue adding the flashcard. Please try again.');
-        });
+        .catch(error => console.error('Error:', error));
     } else {
         alert('Please enter both word and translation');
     }
@@ -41,10 +38,7 @@ function loadFlashcards() {
             flashcardList.appendChild(li);
         });
     })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('There was an issue loading the flashcards. Please try again.');
-    });
+    .catch(error => console.error('Error:', error));
 }
 
 // Load flashcards when the page loads
